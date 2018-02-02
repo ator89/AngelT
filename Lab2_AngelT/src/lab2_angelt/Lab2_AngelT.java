@@ -20,37 +20,46 @@ public class Lab2_AngelT {
                     + "2 - Eliminar detectives\n"
                     + "3 - Modificar detectives\n"
                     + "4 - Log In\n"
-                    + "**\nPresione 0 para salir\n**");
+                    + "**Presione 0 para salir**\n");
             opcion = sc.nextInt();
 
             switch (opcion) {
                 case 1:
                     int opcion_detec;
-
-                    System.out.println("Agregar Dectectives\n"
-                            + "1 - Crear\n"
-                            + "\n**Presione 0 para regresar**\n");
-                    opcion_detec = sc.nextInt();
-
+                    String nombre, nacionalidad, user, password;
+                    int edad, anios_trabajo;
+                    
                     do {
-                        String nombre, nacionalidad, user, password;
-                        int edad, anios_trabajo;
-
-                        System.out.println("\nEscriba el nombre: \n");
-                        nombre = sc.next();
-                        System.out.println("Ingrese la edad: \n");
-                        edad = sc.nextInt();
-                        System.out.println("Ingrese la nacionalidad: \n");
-                        nacionalidad = sc.next();
-                        System.out.println("Cantidad de años: \n");
-                        anios_trabajo = sc.nextInt();
-                        System.out.println("Usuario: \n");
-                        user = sc.next();
-                        System.out.println("Contraseña: \n");
-                        password = sc.next();
+                        System.out.println("Agregar Dectectives\n"
+                            + "1 - Crear\n"
+                            + "**Presione 0 para regresar al menú anterior**\n");
+                        opcion_detec = sc.nextInt();   
+                        
+                        switch (opcion_detec){
+                            case 1:
+                                System.out.println("\nEscriba el nombre: \n");
+                                nombre = sc.next();
+                                System.out.println("Ingrese la edad: \n");
+                                edad = sc.nextInt();
+                                System.out.println("Ingrese la nacionalidad: \n");
+                                nacionalidad = sc.next();
+                                System.out.println("Cantidad de años: \n");
+                                anios_trabajo = sc.nextInt();
+                                System.out.println("Usuario: \n");
+                                user = sc.next();
+                                System.out.println("Contraseña: \n");
+                                password = sc.next();
 
                         detectives.add(new Detectives(nombre, edad, nacionalidad, anios_trabajo, user, password));
 
+                                break;
+                            default:
+                                if (opcion_detec <1 || opcion_detec >1){
+                                System.out.println("No existe esa opción");}
+                                break;
+                        }
+                        
+                        
                     } while (opcion_detec != 0);
 
                     break;
@@ -78,12 +87,20 @@ public class Lab2_AngelT {
                                 + "4 - Modificar casos\n"
                                 + "5 - Enviar mensajes\n"
                                 + "6 - Listar mensajes\n"
-                                + "**\nPresione 0 para salir\n**");
+                                + "**Presione 0 para regresar al menú principal**\n");
                         menuLogIn = sc.nextInt();
 
                         switch (menuLogIn) {
                             case 1:
                                 System.out.println("Listar mis datos\n");
+                                
+                                String s="";
+                                for (Object t: detectives) {
+                                    if (t instanceof Detectives){
+                                    s+=" "+detectives.indexOf(t)+" "+ "- "+t+"\n";
+                                    }   
+                                }
+                                System.out.println(s);
                                 break;
                             case 2:
                                 System.out.println("Listar casos\n");
@@ -146,6 +163,8 @@ public class Lab2_AngelT {
 
             }
         } while (opcion != 0);
+        
+        System.out.println("Salió exitosamente del programa.");
 
     }
 

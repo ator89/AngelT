@@ -106,15 +106,31 @@ public class Lab2_AngelT {
                                 System.out.println("Listar casos\n");
                                 break;
                             case 3:
+                                
+                                String lugar_caso,descri_caso, detective;
                                 String question = "";
-                                System.out.println("Registro casos\n");
-                                String lugar,
-                                 descripcion;
                                 String nom_ev,descrip_ev;
-                                int nivel_pel;
+                                int nivel_pel, estado;
+                                System.out.println("Registro casos\n");
+                                
+                                System.out.println("Ingrese el lugar del caso: \n");
+                                lugar_caso=sc.next();
+                                
+                                System.out.println("Descripción del caso: \n");
+                                descri_caso=sc.next();
+                                
+                                System.out.println("Detective a cargo");
+                                detective=sc.next();
+                                
+                                System.out.println("Estado: \n"+
+                                                    "1 - En proceso\n"+
+                                                    "2 - Resuelto\n");
+                                detective=sc.next();
                                 
                                 System.out.println("¿Existen evidencias? Y/N\n");
                                 question=sc.next();
+                                
+                                
                                 
                                 if(question.equals("Y") || question.equals("y")){
                                     System.out.println("Registro de evidencias\n");
@@ -132,9 +148,12 @@ public class Lab2_AngelT {
                                     nivel_pel=sc.nextInt();
                                     
                                     evidencias.add(new Evidencias(nom_ev,descrip_ev,nivel_pel));
+                                } else{
+                                    System.out.println("No se registraron evidencias.\n");
                                 }
+                                
+                                casos.add(new Casos());
 
-                                int tipo;
                                 break;
                             case 4:
                                 System.out.println("Modificar casos\n");

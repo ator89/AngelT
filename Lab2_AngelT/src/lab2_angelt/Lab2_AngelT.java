@@ -18,8 +18,7 @@ public class Lab2_AngelT {
                     + "2 - Eliminar detectives\n"
                     + "3 - Modificar detectives\n"
                     + "4 - Log In\n"
-                    + "**\nPresione 0 para salir\n**"
-                    + "5 - Listar casos pendientes\n");
+                    + "**\nPresione 0 para salir\n**");
             opcion = sc.nextInt();
 
             switch (opcion) {
@@ -48,16 +47,70 @@ public class Lab2_AngelT {
                         System.out.println("Contraseña: \n");
                         password = sc.next();
 
-                        detectives.add(new Detectives());
+                        detectives.add(new Detectives(nombre,edad,nacionalidad,anios_trabajo,user,password));
 
                     } while (opcion_detec != 0);
 
                     break;
                 case 2:
+                    int pos_el;
+                    System.out.println("Eliminar Detectives: \n");
+                    System.out.println("Ingrese la posición del detective a eliminar: \n");
+                    pos_el=sc.nextInt();
+                    
+                    detectives.remove(pos_el);
                     break;
                 case 3:
+                    
                     break;
                 case 4:
+                    String temp="";
+                    int menuLogIn;
+                    System.out.println("\nLog In\n\n");
+                    
+                    do{
+                        System.out.println("Bienvenido\n"
+                                        + "1 - Listar mis datos\n"
+                                        + "2 - Listar casos\n"
+                                        + "3 - Registro casos\n"
+                                        + "4 - Modificar casos\n"
+                                        + "5 - Enviar mensajes\n"
+                                        + "6 - Listar mensajes\n"
+                                        + "**\nPresione 0 para salir\n**");
+                    menuLogIn = sc.nextInt();
+                    
+                    switch(menuLogIn){
+                        case 1:
+                            System.out.println("Listar mis datos\n");
+                            break;
+                        case 2:
+                            System.out.println("Listar casos\n");
+                            break;
+                        case 3:
+                            System.out.println("Registro casos\n");
+                            String lugar, descripcion;
+                            int tipo;
+                            break;
+                        case 4:
+                            System.out.println("Modificar casos\n");
+                            break;
+                        case 5:
+                            System.out.println("Enviar mensajes\n");
+                            break;
+                        case 6:
+                            System.out.println("Listar mensajes\n");
+                            break;
+                        default:
+                            if (opcion < 0 || opcion > 6) {
+                                System.out.println("Ingrese una opción válida");
+                            }
+                            break;
+                    }
+                        
+                    }while(menuLogIn!=0);
+                    
+                    
+                    
                     break;
                 default:
                     if (opcion < 0 || opcion > 4) {

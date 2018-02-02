@@ -110,26 +110,47 @@ public class Lab2_AngelT {
                     opt_el=sc.nextInt();
                     
                     switch(opt_el){
-                        case 1:
+                        case 1://eliminar detectives por posición
                             int pos_el_dec;
                             System.out.println("Eliminar Detectives: \n");
                             System.out.println("Ingrese la posición del detective a eliminar: \n");
                             pos_el_dec = sc.nextInt();
 
+                            
+                            if(pos_el_dec>=0 && pos_el_dec <detectives.size() 
+                                && detectives.get(pos_el_dec) instanceof Detectives){
+                    
                             detectives.remove(pos_el_dec);
+                            }
+                            
                             break;
-                        case 2:
+                        case 2://eliminar casos por posición
                             int pos_el_caso;
                             System.out.println("Eliminar Casos: \n");
                             System.out.println("Ingrese la posición del caso a eliminar: \n");
                             pos_el_caso = sc.nextInt();
 
-                            detectives.remove(pos_el_caso);
+                            if(pos_el_caso>=0 && pos_el_caso <casos.size() 
+                                && casos.get(pos_el_caso) instanceof Casos){
+                    
+                            casos.remove(pos_el_caso);
+                            }
                             break;
-                        case 3:
+                        case 3://eliminar evidencias por posición
+                            int pos_el_ev;
+                            System.out.println("Eliminar Casos: \n");
+                            System.out.println("Ingrese la posición del caso a eliminar: \n");
+                            pos_el_ev = sc.nextInt();
+
+                            if(pos_el_ev>=0 && pos_el_ev <evidencias.size() 
+                                && evidencias.get(pos_el_ev) instanceof Evidencias){
+                            
+                                evidencias.remove(pos_el_ev);
+                            }
                             break;
+                            
                         default:
-                            if (opcion < 0 || opcion > 3) {
+                            if (opt_el < 0 || opt_el > 3) {
                                     System.out.println("Ingrese una opción válida");
                                 }
                             break;

@@ -48,7 +48,7 @@ public class Lab2_AngelT {
                                 edad = sc.nextInt();
                                 System.out.println("Ingrese la nacionalidad: \n");
                                 nacionalidad = sc.next();
-                                System.out.println("Cantidad de años: \n");
+                                System.out.println("Cantidad de años de antigüedad: \n");
                                 anios_trabajo = sc.nextInt();
                                 System.out.println("Usuario: \n");
                                 user = sc.next();
@@ -59,7 +59,7 @@ public class Lab2_AngelT {
 
                                 break;
                             default:
-                                if (opcion_detec < 1 || opcion_detec > 1) {
+                                if (opcion_detec < 0 || opcion_detec > 1) {
                                     System.out.println("No existe esa opción");
                                 }
                                 break;
@@ -80,12 +80,50 @@ public class Lab2_AngelT {
                         opt_modi=sc.nextInt();
                         
                         switch(opt_modi){
-                            case 1:
+                            case 1://Modificar detectives
                                 int pos_det;
                                 System.out.println("Ingrese la posición del detective a modificar: \n");
+                                pos_det=sc.nextInt();
+                                if(pos_det>=0 && pos_det <detectives.size() 
+                                    && detectives.get(pos_det) instanceof Detectives){
+                                    
+                                    System.out.println("Modificar nombre: \n");
+                                    String newName =sc.next();
+                                    ((Detectives)detectives.get(pos_det)).setNombre(newName);
+                                    
+                                    System.out.println("Modificar edad: \n");
+                                    int newAge =sc.nextInt();
+                                    ((Detectives)detectives.get(pos_det)).setEdad(newAge);
+                                    
+                                    System.out.println("Modificar Nacionalidad: \n");
+                                    String newNat =sc.next();
+                                    ((Detectives)detectives.get(pos_det)).setNacionalidad(newNat);
+                                    
+                                    System.out.println("Modificar Años de Antigüedad: \n");
+                                    int newYears =sc.nextInt();
+                                    ((Detectives)detectives.get(pos_det)).setAnios_trabajo(newYears);
+                                    
+                                    System.out.println("Modificar Usuario: \n");
+                                    String newUser =sc.next();
+                                    ((Detectives)detectives.get(pos_det)).setUser(newUser);
+                                    
+                                    System.out.println("Modificar Contraseña: \n");
+                                    String newPwd =sc.next();
+                                    ((Detectives)detectives.get(pos_det)).setPassword(newPwd);
+
+                                    
+                                }
                                 break;
                             case 2:
+                                int pos_caso;
                                 System.out.println("Ingrese la posición del caso a modificar: \n");
+                                pos_caso=sc.nextInt();
+                                
+                                if(pos_caso>=0 && pos_caso <casos.size() 
+                                    && casos.get(pos_caso) instanceof Casos){
+                                    
+                                }
+                                
                                 break;
                             case 3:
                                 System.out.println("Ingrese la posición de la evidencia a modificar: \n");
@@ -161,6 +199,8 @@ public class Lab2_AngelT {
                     String temp = "";
                     int menuLogIn;
                     System.out.println("\nLog In\n\n");
+                    
+                    
 
                     do {//Menú Log In
                         System.out.println("Bienvenido\n"

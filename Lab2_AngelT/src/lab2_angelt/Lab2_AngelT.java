@@ -11,6 +11,7 @@ public class Lab2_AngelT {
         ArrayList detectives = new ArrayList();
         ArrayList casos = new ArrayList();
         ArrayList evidencias = new ArrayList();
+        ArrayList mensajes= new ArrayList();
 
         int opcion;
 
@@ -161,12 +162,26 @@ public class Lab2_AngelT {
                                 System.out.println("Modificar casos\n");
                                 break;
                             case 5:
-                                String emisor,
-                                 receptor,
-                                 contenido;
+                                String emisor, receptor, contenido;
                                 int prioridad;
                                 System.out.println("Enviar mensajes\n");
-
+                                
+                                System.out.println("Emisor: \n");
+                                emisor=sc.next();
+                                
+                                System.out.println("Receptor: \n");
+                                receptor=sc.next();
+                                
+                                System.out.println("Redacte su mensaje: \n");
+                                contenido=sc.next();
+                                
+                                System.out.println("Prioridad: \n"+
+                                                    "1 - Alto\n2 - Medio\n"
+                                                    + "3 - Bajo\n");
+                                prioridad=sc.nextInt();
+                                
+                                mensajes.add(new Mensajes(emisor,receptor,contenido,prioridad));
+                                
                                 break;
                             case 6:
                                 System.out.println("Listar mensajes\n");

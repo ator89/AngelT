@@ -74,8 +74,7 @@ public class Lab2_AngelT {
                     do{
                         System.out.println("\nModificar datos:\n"+
                                         "1 - Detectives\n"+
-                                        "2 - Casos\n"+
-                                        "3 - Evidencias\n"
+                                        "2 - Evidencias\n"
                         + "**Presione 0 para regresar al menú anterior**\n");
                         opt_modi=sc.nextInt();
                         
@@ -110,22 +109,12 @@ public class Lab2_AngelT {
                                     System.out.println("Modificar Contraseña: \n");
                                     String newPwd =sc.next();
                                     ((Detectives)detectives.get(pos_det)).setPassword(newPwd);
-
+                                    
+                                    
                                     
                                 }
                                 break;
                             case 2:
-                                int pos_caso;
-                                System.out.println("Ingrese la posición del caso a modificar: \n");
-                                pos_caso=sc.nextInt();
-                                
-                                if(pos_caso>=0 && pos_caso <casos.size() 
-                                    && casos.get(pos_caso) instanceof Casos){
-                                    
-                                }
-                                
-                                break;
-                            case 3:
                                 System.out.println("Ingrese la posición de la evidencia a modificar: \n");
                                 break;
                             default:
@@ -288,6 +277,30 @@ public class Lab2_AngelT {
                                 
                             case 4://modificar casos
                                 System.out.println("Modificar casos\n");
+                                int pos_caso;
+                                System.out.println("Ingrese la posición del caso a modificar: \n");
+                                pos_caso=sc.nextInt();
+                                
+                                if(pos_caso>=0 && pos_caso <casos.size() 
+                                    && casos.get(pos_caso) instanceof Casos){
+                                    
+                                    System.out.println("Modificar el lugar: \n");
+                                    String newPlace =sc.next();
+                                    ((Casos)casos.get(pos_caso)).setLugar_caso(newPlace);
+                                    
+                                    System.out.println("Modificar la descripción: \n");
+                                    String newDesc =sc.next();
+                                    ((Casos)casos.get(pos_caso)).setDescri_caso(newDesc);
+                                    
+                                    System.out.println("Modificar el detective: \n");
+                                    String newDet =sc.next();
+                                    ((Casos)casos.get(pos_caso)).setDetective(newDet);
+                                    
+                                    System.out.println("Modificar el estado: \n");
+                                    int newStat =sc.nextInt();
+                                    ((Casos)casos.get(pos_caso)).setEstado(newStat);
+                                    
+                                }
                                 break;
                                 
                             case 5:// enviar mensajes

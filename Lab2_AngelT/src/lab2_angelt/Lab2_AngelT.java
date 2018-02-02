@@ -15,17 +15,17 @@ public class Lab2_AngelT {
 
         int opcion;
 
-        do {
+        do { //Main Menu
             System.out.println("Dectectives\n"
                     + "1 - Agregar detectives\n"
-                    + "2 - Eliminar detectives\n"
-                    + "3 - Modificar detectives\n"
+                    + "2 - Modificar detectives\n"
+                    + "3 - Eliminar detectives\n"
                     + "4 - Log In\n"
                     + "**Presione 0 para salir**\n");
             opcion = sc.nextInt();
 
             switch (opcion) {
-                case 1:
+                case 1://agregar detectives
                     int opcion_detec;
                     String nombre,
                      nacionalidad,
@@ -68,23 +68,80 @@ public class Lab2_AngelT {
                     } while (opcion_detec != 0);
 
                     break;
-                case 2:
-                    int pos_el;
-                    System.out.println("Eliminar Detectives: \n");
-                    System.out.println("Ingrese la posición del detective a eliminar: \n");
-                    pos_el = sc.nextInt();
-
-                    detectives.remove(pos_el);
+                case 2://modificar datos
+                    int opt_modi;
+                    
+                    do{
+                        System.out.println("\nModificar datos:\n"+
+                                        "1 - Detectives\n"+
+                                        "2 - Casos\n"+
+                                        "3 - Evidencias\n"
+                        + "**Presione 0 para regresar al menú anterior**\n");
+                        opt_modi=sc.nextInt();
+                        
+                        switch(opt_modi){
+                            case 1:
+                                int pos_det;
+                                System.out.println("Ingrese la posición del detective a modificar: \n");
+                                break;
+                            case 2:
+                                System.out.println("Ingrese la posición del caso a modificar: \n");
+                                break;
+                            case 3:
+                                System.out.println("Ingrese la posición de la evidencia a modificar: \n");
+                                break;
+                            default:
+                                if (opcion < 0 || opcion > 3) {
+                                    System.out.println("Ingrese una opción válida");
+                                }
+                                break;
+                        }
+                    }while(opt_modi!=0);
+                    
+                    
                     break;
-                case 3:
+                case 3://eliminar detectives
+                    int opt_el;
+                    System.out.println("\nModificar datos:\n"+
+                                        "1 - Detectives\n"+
+                                        "2 - Casos\n"+
+                                        "3 - Evidencias\n"
+                        + "**Presione 0 para regresar al menú anterior**\n");
+                    opt_el=sc.nextInt();
+                    
+                    switch(opt_el){
+                        case 1:
+                            int pos_el_dec;
+                            System.out.println("Eliminar Detectives: \n");
+                            System.out.println("Ingrese la posición del detective a eliminar: \n");
+                            pos_el_dec = sc.nextInt();
 
+                            detectives.remove(pos_el_dec);
+                            break;
+                        case 2:
+                            int pos_el_caso;
+                            System.out.println("Eliminar Casos: \n");
+                            System.out.println("Ingrese la posición del caso a eliminar: \n");
+                            pos_el_caso = sc.nextInt();
+
+                            detectives.remove(pos_el_caso);
+                            break;
+                        case 3:
+                            break;
+                        default:
+                            if (opcion < 0 || opcion > 3) {
+                                    System.out.println("Ingrese una opción válida");
+                                }
+                            break;
+                    }
+                    
                     break;
-                case 4:
+                case 4://Login menu
                     String temp = "";
                     int menuLogIn;
                     System.out.println("\nLog In\n\n");
 
-                    do {
+                    do {//Menú Log In
                         System.out.println("Bienvenido\n"
                                 + "1 - Listar mis datos\n"
                                 + "2 - Listar casos\n"
@@ -96,7 +153,7 @@ public class Lab2_AngelT {
                         menuLogIn = sc.nextInt();
 
                         switch (menuLogIn) {
-                            case 1:
+                            case 1://Listar datos
                                 System.out.println("Listar mis datos\n");
 
                                 String s = "";
@@ -107,10 +164,19 @@ public class Lab2_AngelT {
                                 }
                                 System.out.println(s);
                                 break;
-                            case 2:
+                                
+                            case 2://listar casos
                                 System.out.println("Listar casos\n");
+                                String cas = "";
+                                for (Object t : casos) {
+                                    if (t instanceof Casos) {
+                                        cas += " " + casos.indexOf(t) + " " + "- " + t + "\n";
+                                    }
+                                }
+                                System.out.println(cas+"\n");
                                 break;
-                            case 3:
+                                
+                            case 3://Registrar casos
 
                                 String lugar_caso, descri_caso, detective;
                                 String question = "";
@@ -158,10 +224,12 @@ public class Lab2_AngelT {
                                 casos.add(new Casos());
 
                                 break;
-                            case 4:
+                                
+                            case 4://modificar casos
                                 System.out.println("Modificar casos\n");
                                 break;
-                            case 5:
+                                
+                            case 5:// enviar mensajes
                                 String emisor, receptor, contenido;
                                 int prioridad;
                                 System.out.println("Enviar mensajes\n");
@@ -183,27 +251,35 @@ public class Lab2_AngelT {
                                 mensajes.add(new Mensajes(emisor,receptor,contenido,prioridad));
                                 
                                 break;
-                            case 6:
+                            case 6: //listar mensajes
                                 System.out.println("Listar mensajes\n");
+                                String men = "";
+                                for (Object t : mensajes) {
+                                    if (t instanceof Mensajes) {
+                                        men += " " + mensajes.indexOf(t) + " " + "- " + t + "\n";
+                                    }
+                                }
+                                System.out.println(men);
                                 break;
                             default:
                                 if (opcion < 0 || opcion > 6) {
                                     System.out.println("Ingrese una opción válida");
                                 }
                                 break;
-                        }
+                        }//final main 
 
-                    } while (menuLogIn != 0);
-
+                    } while (menuLogIn != 0);//final Login menu
+                    
                     break;
-                default:
-                    if (opcion < 0 || opcion > 4) {
+                    
+                    default:
+                        if (opcion < 0 || opcion > 4) {
                         System.out.println("Ingrese una opción válida");
                     }
                     break;
 
             }
-        } while (opcion != 0);
+        } while (opcion != 0); //final Main Menu
 
         System.out.println("Salió exitosamente del programa.");
 

@@ -1,21 +1,18 @@
-
-
 package lab2_angelt;
 
-
 public class Casos {
-    
-    String lugar_caso,descri_caso, detective;
+
+    String lugar_caso, descri_caso, detective;
     int estado;
 
     public Casos() {
     }
-    
-    public Casos(String lugar, String descri_caso, String detective, int estado){
-        this.lugar_caso=lugar_caso;
-        this.descri_caso=descri_caso;
-        this.detective=detective;
-        this.estado=estado;
+
+    public Casos(String lugar, String descri_caso, String detective, int estado) {
+        this.lugar_caso = lugar_caso;
+        this.descri_caso = descri_caso;
+        this.detective = detective;
+        this.estado = estado;
     }
 
     public String getLugar_caso() {
@@ -54,7 +51,5 @@ public class Casos {
     public String toString() {
         return "Casos{" + "lugar_caso=" + lugar_caso + ", descri_caso=" + descri_caso + ", detective=" + detective + ", estado=" + estado + '}';
     }
-    
-    
-    
+
 }

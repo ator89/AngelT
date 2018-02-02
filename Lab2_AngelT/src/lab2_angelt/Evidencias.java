@@ -1,20 +1,17 @@
-
-
 package lab2_angelt;
 
-
 public class Evidencias {
-    
+
     private int nivel;
     private String nombre, descri;
 
     public Evidencias() {
     }
-    
+
     public Evidencias(String nombre, String descri, int nivel) {
-        this.nombre=nombre;
-        this.descri=descri;
-        this.nivel=nivel;
+        this.nombre = nombre;
+        this.descri = descri;
+        this.nivel = nivel;
     }
 
     public int getNivel() {
@@ -45,7 +42,5 @@ public class Evidencias {
     public String toString() {
         return "Evidencias{" + "nivel=" + nivel + ", nombre=" + nombre + ", descri=" + descri + '}';
     }
-    
-    
 
 }

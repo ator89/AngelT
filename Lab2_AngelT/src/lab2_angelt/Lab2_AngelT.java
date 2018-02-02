@@ -26,16 +26,20 @@ public class Lab2_AngelT {
             switch (opcion) {
                 case 1:
                     int opcion_detec;
-                    String nombre, nacionalidad, user, password;
-                    int edad, anios_trabajo;
-                    
+                    String nombre,
+                     nacionalidad,
+                     user,
+                     password;
+                    int edad,
+                     anios_trabajo;
+
                     do {
                         System.out.println("Agregar Dectectives\n"
-                            + "1 - Crear\n"
-                            + "**Presione 0 para regresar al menú anterior**\n");
-                        opcion_detec = sc.nextInt();   
-                        
-                        switch (opcion_detec){
+                                + "1 - Crear\n"
+                                + "**Presione 0 para regresar al menú anterior**\n");
+                        opcion_detec = sc.nextInt();
+
+                        switch (opcion_detec) {
                             case 1:
                                 System.out.println("\nEscriba el nombre: \n");
                                 nombre = sc.next();
@@ -50,16 +54,16 @@ public class Lab2_AngelT {
                                 System.out.println("Contraseña: \n");
                                 password = sc.next();
 
-                        detectives.add(new Detectives(nombre, edad, nacionalidad, anios_trabajo, user, password));
+                                detectives.add(new Detectives(nombre, edad, nacionalidad, anios_trabajo, user, password));
 
                                 break;
                             default:
-                                if (opcion_detec <1 || opcion_detec >1){
-                                System.out.println("No existe esa opción");}
+                                if (opcion_detec < 1 || opcion_detec > 1) {
+                                    System.out.println("No existe esa opción");
+                                }
                                 break;
                         }
-                        
-                        
+
                     } while (opcion_detec != 0);
 
                     break;
@@ -93,12 +97,12 @@ public class Lab2_AngelT {
                         switch (menuLogIn) {
                             case 1:
                                 System.out.println("Listar mis datos\n");
-                                
-                                String s="";
-                                for (Object t: detectives) {
-                                    if (t instanceof Detectives){
-                                    s+=" "+detectives.indexOf(t)+" "+ "- "+t+"\n";
-                                    }   
+
+                                String s = "";
+                                for (Object t : detectives) {
+                                    if (t instanceof Detectives) {
+                                        s += " " + detectives.indexOf(t) + " " + "- " + t + "\n";
+                                    }
                                 }
                                 System.out.println(s);
                                 break;
@@ -106,52 +110,50 @@ public class Lab2_AngelT {
                                 System.out.println("Listar casos\n");
                                 break;
                             case 3:
-                                
-                                String lugar_caso,descri_caso, detective;
+
+                                String lugar_caso, descri_caso, detective;
                                 String question = "";
-                                String nom_ev,descrip_ev;
+                                String nom_ev, descrip_ev;
                                 int nivel_pel, estado;
                                 System.out.println("Registro casos\n");
-                                
+
                                 System.out.println("Ingrese el lugar del caso: \n");
-                                lugar_caso=sc.next();
-                                
+                                lugar_caso = sc.next();
+
                                 System.out.println("Descripción del caso: \n");
-                                descri_caso=sc.next();
-                                
+                                descri_caso = sc.next();
+
                                 System.out.println("Detective a cargo");
-                                detective=sc.next();
-                                
-                                System.out.println("Estado: \n"+
-                                                    "1 - En proceso\n"+
-                                                    "2 - Resuelto\n");
-                                detective=sc.next();
-                                
+                                detective = sc.next();
+
+                                System.out.println("Estado: \n"
+                                        + "1 - En proceso\n"
+                                        + "2 - Resuelto\n");
+                                detective = sc.next();
+
                                 System.out.println("¿Existen evidencias? Y/N\n");
-                                question=sc.next();
-                                
-                                
-                                
-                                if(question.equals("Y") || question.equals("y")){
+                                question = sc.next();
+
+                                if (question.equals("Y") || question.equals("y")) {
                                     System.out.println("Registro de evidencias\n");
-                                    
+
                                     System.out.println("Nombre de la evidencia: \n");
-                                    nom_ev=sc.next();
-                                    
+                                    nom_ev = sc.next();
+
                                     System.out.println("Descripción de la evidencia: \n");
-                                    descrip_ev=sc.next();
-                                    
-                                    System.out.println("Nivel de peligrosidad: \n"+
-                                                        "1 - Alto\n"+
-                                                        "2 - Medio\n"+
-                                                        "3 - Bajo\n");
-                                    nivel_pel=sc.nextInt();
-                                    
-                                    evidencias.add(new Evidencias(nom_ev,descrip_ev,nivel_pel));
-                                } else{
+                                    descrip_ev = sc.next();
+
+                                    System.out.println("Nivel de peligrosidad: \n"
+                                            + "1 - Alto\n"
+                                            + "2 - Medio\n"
+                                            + "3 - Bajo\n");
+                                    nivel_pel = sc.nextInt();
+
+                                    evidencias.add(new Evidencias(nom_ev, descrip_ev, nivel_pel));
+                                } else {
                                     System.out.println("No se registraron evidencias.\n");
                                 }
-                                
+
                                 casos.add(new Casos());
 
                                 break;
@@ -159,7 +161,12 @@ public class Lab2_AngelT {
                                 System.out.println("Modificar casos\n");
                                 break;
                             case 5:
+                                String emisor,
+                                 receptor,
+                                 contenido;
+                                int prioridad;
                                 System.out.println("Enviar mensajes\n");
+
                                 break;
                             case 6:
                                 System.out.println("Listar mensajes\n");
@@ -182,7 +189,7 @@ public class Lab2_AngelT {
 
             }
         } while (opcion != 0);
-        
+
         System.out.println("Salió exitosamente del programa.");
 
     }
